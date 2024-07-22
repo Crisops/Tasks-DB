@@ -1,7 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import FormSignIn from "../components/react/FormSignIn";
+import FormSignUp from "../components/react/FormSignUp";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main></main>
+  <main class="flex justify-center items-center h-dvh">
+    <div
+      class="relative max-w-80 min-w-[1200px] h-[700px] border border-slate-200 shadow-slate-200 shadow-[0px_0px_50px]"
+    >
+      <div
+        class="absolute left-0 bg-[linear-gradient(45deg,_rgb(255,0,51),_rgba(255,0,102))] w-1/2 h-full z-[1]"
+      >
+      </div>
+      <FormSignIn client:idle />
+      <FormSignUp client:idle />
+    </div>
+  </main>
 </Layout>
