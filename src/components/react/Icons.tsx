@@ -1,5 +1,5 @@
 export const Facebook = (): JSX.Element => (
-  <svg className='transition-colors duration-300 ease-in-out group-hover:fill-zinc-600 size-6 fill-zinc-300' viewBox='0 0 512 512'>
+  <svg className='transition-colors duration-300 ease-in-out group-hover:fill-zinc-600 size-6 fill-zinc-300 pointer-events-none' viewBox='0 0 512 512'>
     <g id='SVGRepo_bgCarrier' strokeWidth='0' />
     <g id='SVGRepo_tracerCarrier' strokeLinecap='round' strokeLinejoin='round' />
     <g id='SVGRepo_iconCarrier'>
@@ -11,7 +11,7 @@ export const Facebook = (): JSX.Element => (
 )
 
 export const Google = (): JSX.Element => (
-  <svg className='transition-colors duration-300 ease-in-out group-hover:fill-zinc-600 size-7 fill-zinc-300' viewBox='0 0 24 24'>
+  <svg className='transition-colors duration-300 ease-in-out group-hover:fill-zinc-600 size-7 fill-zinc-300 pointer-events-none' viewBox='0 0 24 24'>
     <g id='SVGRepo_bgCarrier' strokeWidth='0' />
     <g id='SVGRepo_tracerCarrier' strokeLinecap='round' strokeLinejoin='round' />
     <g id='SVGRepo_iconCarrier'>
@@ -21,7 +21,7 @@ export const Google = (): JSX.Element => (
 )
 
 export const GitHub = (): JSX.Element => (
-  <svg className='transition-colors duration-300 ease-in-out group-hover:fill-zinc-600 size-7 fill-zinc-300' viewBox='0 0 24 24'>
+  <svg className='transition-colors duration-300 ease-in-out group-hover:fill-zinc-600 size-7 fill-zinc-300 pointer-events-none' viewBox='0 0 24 24'>
     <g id='SVGRepo_bgCarrier' strokeWidth='0' />
     <g id='SVGRepo_tracerCarrier' strokeLinecap='round' strokeLinejoin='round' />
     <g id='SVGRepo_iconCarrier'>
