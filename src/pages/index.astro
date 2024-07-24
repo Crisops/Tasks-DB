@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import FormSignIn from "../components/react/FormSignIn";
 import FormSignUp from "../components/react/FormSignUp";
+import WalkForm from "../components/react/WalkForm";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -9,11 +10,8 @@ import FormSignUp from "../components/react/FormSignUp";
     <div
       class="relative max-w-80 min-w-[1200px] h-[700px] border border-slate-200 shadow-slate-200 shadow-[0px_0px_50px]"
     >
-      <div
-        class="absolute right-0 bg-[linear-gradient(45deg,_rgb(255,0,51),_rgba(255,0,102))] w-1/2 h-full z-[1]"
-      >
-      </div>
-      <FormSignIn client:idle />
+      <WalkForm client:load />
+      <FormSignIn client:load />
       <FormSignUp client:idle />
     </div>
   </main>
