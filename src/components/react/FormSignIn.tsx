@@ -1,8 +1,15 @@
+import { useFormStore } from '../store/useFormStore'
 import ButtonProviderLogin from './ButtonProviderLogin'
 import { Facebook, GitHub, Google } from './Icons'
 import Input from './Input'
 
 function FormSignIn (): JSX.Element {
+  const { setWalkForm } = useFormStore(state => state)
+
+  const handleSignUp = (): void => {
+    setWalkForm(true)
+  }
+
   return (
     <div className='absolute top-0 left-0 w-1/2 h-full flex justify-center'>
       <form className='w-96 h-full flex flex-col justify-center'>
@@ -23,10 +30,10 @@ function FormSignIn (): JSX.Element {
           <button className='px-2 py-3 bg-zinc-300 font-semibold transition-colors duration-300 ease-in-out hover:bg-[#FF0050] hover:text-white'>Login</button>
         </div>
         <div className='flex flex-col justify-center items-center gap-y-3 mt-4'>
-          <button>Forgot password?</button>
+          <span className='hover:underline cursor-pointer'>Forgot password?</span>
           <div className='w-full flex justify-between items-center'>
             <span>Don't have an account?</span>
-            <button className='text-pink-600'>Sign Up</button>
+            <span onClick={handleSignUp} className='text-pink-600 cursor-pointer'>Sign Up</span>
           </div>
         </div>
       </form>
