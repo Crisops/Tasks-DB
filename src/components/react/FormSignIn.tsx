@@ -27,14 +27,12 @@ function FormSignIn (): JSX.Element {
         <div className='flex flex-col gap-y-3'>
           <Input type='text' name='email' placeholder='Email' />
           <Input type='password' name='password' placeholder='Password' />
+          <span className='self-end hover:underline cursor-pointer'>Forgot password?</span>
           <button className='px-2 py-3 bg-zinc-300 font-semibold transition-colors duration-300 ease-in-out hover:bg-[#FF0050] hover:text-white'>Login</button>
         </div>
-        <div className='flex flex-col justify-center items-center gap-y-3 mt-4'>
-          <span className='hover:underline cursor-pointer'>Forgot password?</span>
-          <div className='w-full flex justify-between items-center'>
-            <span>Don't have an account?</span>
-            <span onClick={handleSignUp} className='text-pink-600 cursor-pointer'>Sign Up</span>
-          </div>
+        <div className='w-full mt-4 flex justify-between items-center'>
+          <span>Don't have an account?</span>
+          <span onClick={handleSignUp} className='text-pink-600 cursor-pointer'>Sign Up</span>
         </div>
       </form>
     </div>
