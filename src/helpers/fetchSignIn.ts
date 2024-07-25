@@ -1,10 +1,10 @@
-import type { FormEvent, MouseEvent } from 'react'
+import type { FormEvent } from 'react'
 
 export const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
   e.preventDefault()
   const data = Object.fromEntries(new FormData(e.target as HTMLFormElement))
 
-  const options = {
+  const options: RequestInit = {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {
@@ -12,23 +12,14 @@ export const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void>
     }
   }
 
-  await fetch('/api/auth/signin', options)
-}
+  try {
+    const response = await fetch('/api/auth/signin', options)
 
-export const handleSignInProvider = async (e: MouseEvent<HTMLButtonElement>): Promise<void> => {
-  const value = (e.target as HTMLButtonElement).value
+    if (!response.ok) throw new Error('Failed to sign in')
+    const { url } = await response.json()
 
-  const data = {
-    provider: value
+    window.location.href = url
+  } catch (error) {
+    console.log(error)
   }
-
-  const options = {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }
-
-  await fetch('/api/auth/signin', options)
 }
