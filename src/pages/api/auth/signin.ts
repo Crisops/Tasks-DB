@@ -1,21 +1,26 @@
 import { type APIRoute } from 'astro'
+import { supabase } from '../../../lib/supabase'
+import type { Provider } from '@supabase/supabase-js'
 
 export const POST: APIRoute = async ({ request, redirect }) => {
   try {
-    // const formData = await request.formData()
+    const { provider } = await request.json()
 
-    // const provider = formData.get('provider')?.toString()
+    const validateProvider = ['github', 'google', 'facebook']
 
-    const { provider, email, password } = await request.json()
+    if (!validateProvider.includes(provider)) return new Response('Invalid Provider', { status: 400 })
 
-    console.log(provider, email, password)
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: provider as Provider,
+      options: {
+        redirectTo: 'http://localhost:4321/api/auth/callback'
+      }
+    })
 
-    // redirect('/dashboard')
+    if (error != null) return new Response(error.message, { status: 400 })
 
-    return new Response('Tenemos que redireccionar', { status: 200 })
-    // const provider = formData.get('provider')
-
-    // const validateProvider = ['github', 'google', 'facebook']
+    const response = new Response(JSON.stringify(data), { status: 200 })
+    return response
   } catch (error) {
     return new Response('Server error', { status: 500 })
   }
